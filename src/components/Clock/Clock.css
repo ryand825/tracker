@@ -1,0 +1,20 @@
+@font-face {
+    font-family: digital;
+    src: url(digital.ttf);
+}
+
+.clock {
+    font-size: 2.2rem;
+    font-family: digital;
+    display: flex;
+}
+
+.active {
+    animation: active-timer infinite 1.2s steps(2, start);
+}
+
+@keyframes active-timer {
+    to {
+        visibility: hidden;
+    }
+}
