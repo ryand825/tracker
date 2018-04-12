@@ -1,0 +1,12 @@
+.my-button {
+    background-color: rgb(51, 192, 51);
+    height: 30px;
+    width: 90px;
+    border: none;
+    color: white;
+    font-size: 1rem;
+}
+
+.warning {
+    background-color: red !important;
+}
