@@ -6,8 +6,9 @@ const twelveHour = true;
 
 class clock extends Component {
     state = {
-        hours: '',
-        minutes: '',
+        hours: 0,
+        minutes: 0,
+        seconds: 0,
         active: false,
         activeClass: '',
         isAm: true,
@@ -17,7 +18,6 @@ class clock extends Component {
         if (!this.props.dateObj) {
             this.setCurrentTime(new Date(), true);
             this.setState({ activeClass: 'active' })
-            console.log('will mount');
         } else {
             this.setCurrentTime(this.props.dateObj);
         }
@@ -27,7 +27,6 @@ class clock extends Component {
         if (this.state.active) {
             const secondsLeft = 60 - new Date().getSeconds();
             setTimeout(() => this.setCurrentTime(new Date()), secondsLeft * 1000)
-            console.log(secondsLeft)
         }
     }
 
@@ -35,7 +34,6 @@ class clock extends Component {
         if (this.state.active) {
             setTimeout(() => this.setCurrentTime(new Date()), 60000)
         }
-        console.log('will update')
     }
 
     setCurrentTime = (date, isActive = this.state.active) => {

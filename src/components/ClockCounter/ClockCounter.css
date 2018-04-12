@@ -3,8 +3,8 @@
     src: url(../../assets/fonts/digital.ttf);
 }
 
-.clock {
-    font-size: 2.2rem;
+.counter {
+    font-size: 1.4rem;
     font-family: digital;
     display: flex;
 }
