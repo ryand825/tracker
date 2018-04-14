@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ClockCounter from '../../components/ClockCounter/ClockCounter';
 import Button from '../../components/UI/Button/Button';
+import Input from '../../components/UI/Input/Input';
 
 class Clockin extends Component {
   state = {
@@ -11,7 +12,8 @@ class Clockin extends Component {
   }
 
   componentDidUpdate() {
-    this.state.timerActive ? this.runTimer() : null;
+    if (this.state.timerActive)
+      this.runTimer();
   }
 
   runTimer = () => {
@@ -31,6 +33,7 @@ class Clockin extends Component {
   render() {
     return (
       <div>
+        <Input />
         <ClockCounter
           duration={this.state.duration.toISOString()}
           running={this.state.timerActive} />
