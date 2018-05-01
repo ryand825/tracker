@@ -6,7 +6,7 @@ const titlebar = () => {
     return (
         <header>
             <div> HEader </div>
-            <Clock  />
+            <Clock />
         </header>
     )
 }
