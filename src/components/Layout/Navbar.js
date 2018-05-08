@@ -32,6 +32,13 @@ const Navbar = () => {
             >
               Time Sheet
             </NavLink>
+            <NavLink
+              activeClassName="text-info"
+              to="/settings"
+              className="nav-link"
+            >
+              Settings
+            </NavLink>
           </ul>
           <li className="navbar-text">Login</li>
         </div>
