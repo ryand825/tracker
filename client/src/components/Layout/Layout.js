@@ -8,6 +8,18 @@ import TimeSheet from "../time-sheet/TimeSheet";
 import Settings from "../Settings/Settings";
 
 export class Layout extends Component {
+  state = {
+    laborTypes: ["Billable", "Travel", "Warranty"]
+  };
+
+  handleAddLaborTypes = newValue => {
+    let typesArray = [...this.state.laborTypes];
+    typesArray.push(newValue);
+    this.setState({
+      laborTypes: typesArray
+    });
+  };
+
   render() {
     return (
       <Router>
@@ -15,7 +27,15 @@ export class Layout extends Component {
           <Navbar />
           <Route exact path="/clock-in" component={Clockin} />
           <Route path="/time-sheet" component={TimeSheet} />
-          <Route path="/settings" component={Settings} />
+          <Route
+            path="/settings"
+            render={() => (
+              <Settings
+                laborTypes={this.state.laborTypes}
+                addLaborTypes={this.handleAddLaborTypes}
+              />
+            )}
+          />
           <Footer />
         </React.Fragment>
       </Router>
