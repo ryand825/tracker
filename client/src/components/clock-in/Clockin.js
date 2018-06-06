@@ -29,8 +29,23 @@ export class Clockin extends Component {
 
           <div className="col-sm">
             {/* <h5>Time Status</h5> */}
+            <div
+              className="btn-group w-100"
+              role="group"
+              aria-label="Basic example"
+            >
+              <button type="button" className="btn btn-warning w-100">
+                Pause
+              </button>
+              <button type="button" className="btn btn-info w-100">
+                Switch Task
+              </button>
+              <button type="button" className="btn btn-danger w-100">
+                Switch Job
+              </button>
+            </div>
             <div className="list-group">
-              <div className="list-group-item">Title</div>
+              <div className="list-group-item">5/29/2018 - 12:47PM</div>
               <div className="list-group-item bg-light py-1">
                 03:57 - 4:57 <span className="float-right">1.0 Hours</span>
               </div>
@@ -39,6 +54,9 @@ export class Clockin extends Component {
               <div className="list-group-item bg-light py-1">Time entry</div>
               <div className="list-group-item">Some info</div>
             </div>
+            <button type="button" className="btn btn-danger btn-block">
+              Clock Out
+            </button>
           </div>
         </div>
       </div>

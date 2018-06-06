@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = props => {
   return (
     <nav className="navbar navbar-expand-sm navbar-light bg-light mb-4 ">
       <div className="container">
@@ -40,7 +40,25 @@ const Navbar = () => {
               Settings
             </NavLink>
           </ul>
-          <li className="navbar-text">Login</li>
+          <span className="navbar-nav">
+            <NavLink
+              activeClassName="text-info"
+              to="/register"
+              className="nav-link"
+            >
+              Register
+            </NavLink>
+            <NavLink
+              activeClassName="text-info"
+              to="/login"
+              className="nav-link"
+            >
+              Login
+            </NavLink>
+            <button onClick={props.logout} className="btn nav-link">
+              Logout
+            </button>
+          </span>
         </div>
       </div>
     </nav>
