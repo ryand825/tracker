@@ -55,7 +55,7 @@ const Navbar = props => {
             >
               Login
             </NavLink>
-            <button onClick={props.logout} className="btn nav-link">
+            <button onClick={props.logout} className="nav-link btn btn-link">
               Logout
             </button>
           </span>

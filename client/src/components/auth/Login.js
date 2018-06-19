@@ -39,7 +39,9 @@ export class Login extends Component {
                 value={this.state.email}
                 error={errors.email}
                 onChange={this.onChange}
+                large
               />
+
               <TextFieldGroup
                 placeholder="Password"
                 name="password"
@@ -47,6 +49,7 @@ export class Login extends Component {
                 value={this.state.password}
                 error={errors.password}
                 onChange={this.onChange}
+                large
               />
               <input type="submit" className="btn btn-info btn-block mt-4" />
             </form>

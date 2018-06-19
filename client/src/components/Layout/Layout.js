@@ -15,7 +15,7 @@ import PrivateRoute from "../common/PrivateRoute";
 
 export class Layout extends Component {
   state = {
-    laborTypes: ["Billable", "Travel", "Warranty"],
+    laborTypes: [],
     auth: false,
     registerErrors: {},
     loginErrors: {},
@@ -23,6 +23,10 @@ export class Layout extends Component {
   };
 
   componentWillMount() {
+    this.checkAuthToken();
+  }
+
+  checkAuthToken = () => {
     if (localStorage.jwtToken) {
       setAuthToken(localStorage.jwtToken);
       const decoded = jwt_decode(localStorage.jwtToken);
@@ -34,15 +38,15 @@ export class Layout extends Component {
         window.location.href = "/login";
       }
     }
-  }
-
-  handleAddLaborTypes = newValue => {
-    let typesArray = [...this.state.laborTypes];
-    typesArray.push(newValue);
-    this.setState({
-      laborTypes: typesArray
-    });
   };
+
+  // handleAddLaborTypes = newValue => {
+  //   let typesArray = [...this.state.laborTypes];
+  //   typesArray.push(newValue);
+  //   this.setState({
+  //     laborTypes: typesArray
+  //   });
+  // };
 
   handleNewUser = newUser => {
     axios
@@ -71,8 +75,7 @@ export class Layout extends Component {
   handleLogout = () => {
     localStorage.removeItem("jwtToken");
     setAuthToken(false);
-    this.props.history.push("/login");
-    this.setState({ setCurrentUser: false });
+    this.setState({ setCurrentUser: {}, auth: false });
   };
 
   render() {

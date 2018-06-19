@@ -11,6 +11,7 @@ const validateLoginInput = require("../../validation/login");
 
 //Load User Model
 const User = require("../../models/User");
+const Settings = require("../../models/Settings"); // For initial user setup
 
 // @route GET api/users/test
 // @desc Tests users route
@@ -44,8 +45,15 @@ router.post("/register", (req, res) => {
           if (err) throw err;
           newUser.password = hash;
           newUser
-            .save() // save to mongo
-            .then(user => res.json(user))
+            .save() // save user to mongo
+            .then(user => {
+              // create initial settings for new user
+              const initSettings = new Settings({ user });
+              // initSettings.laborType.push({ test: "test" });
+              // console.log(initSettings);
+              initSettings.save().catch(err => console.log(err));
+              res.json(user);
+            })
             .catch(err => console.log(err));
         });
       });

@@ -2,6 +2,10 @@ import React, { Component } from "react";
 // import { Route, NavLink } from "react-router-dom";
 
 export class TimeSheet extends Component {
+  componentDidUpdate() {
+    console.log("timesheet");
+  }
+
   render() {
     return (
       <div className="container">
